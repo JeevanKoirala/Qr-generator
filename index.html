@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <p>Enter the magic words to transform</p>
+        <input type="text" placeholder="your words or the url" id="qrtext">
+        <div id="imgbox">
+            <img src="" id="imgg">
+        </div>
+        
+        <button onclick="dothemagic()">DO the magic</button>
+
+    </div>
+    <script>
+
+let imgbox = document.getElementById("imgbox");
+let img = document.getElementById("img");
+let qrtext = document.getElementById("qrtext");
+
+ function dothemagic(){
+    if(qrtext.value.length > 0){
+        imgg.src ="https://quickchart.io/qr?text=" + qrtext.value;
+        imgbox.classList.add("show-img");
+
+        }else{
+            qrtext.classList.add('error');
+            setTimeout(()=>{
+                qrtext.classList.remove('error');
+            },1000);
+        }
+    }
+    </script>
+</body>
+</html>
